@@ -27,8 +27,7 @@
 </html>
 <script>
     const goalDate = new Date("2024-12-09").getTime();
-    const content = document.getElementById("content");
-    content.style.fontSize = "16px";
+    document.getElementById('count').style.fontSize = '16px';
 
     function calcDate() {
         const now = new Date().getTime();
