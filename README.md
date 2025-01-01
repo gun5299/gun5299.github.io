@@ -46,7 +46,7 @@
         var seconds = Math.floor((distance % (1000*60)) / 1000);
 
         if (distance < 0) {
-            return '${days}일';
+            return '${-days}일';
         } else {
             return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남음`;
         }
