@@ -43,7 +43,7 @@
         if (distance < 0) {
             return 'D+${days}';
         } else {
-            return `${days}일`;
+            return `D+${days}`;
         }
     }
     
