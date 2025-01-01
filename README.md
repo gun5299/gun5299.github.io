@@ -13,13 +13,13 @@
     .container {
         width: 100%;
         text-align: center;
-        font-size: 100%;
+        font-size: 16px;
     }
 </style>
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1>청이와 총이</h1>
+            <h1>총이와 청이🐸</h1>
             <div id="count">D+??</div>
         </div>        
     </div>
