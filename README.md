@@ -12,7 +12,7 @@
     .container {
         width: 100%;
         text-align: left;
-        font-size: 12px;
+        font-size: 8px;
     }
 </style>
 <body>
@@ -36,7 +36,7 @@
         //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
         //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
         //var seconds = Math.floor((distance % (1000*60)) / 1000);
-        document.getElementById('count').style.fontSize = "16px";
+        document.getElementById('count').style.fontSize = "60px";
         if (distance < 0) {
             return 'D+${days}';
         } else {
