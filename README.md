@@ -22,7 +22,7 @@
     <div class="wrapper">
         <div class="container">
             <h1></h1>
-            <div id="count">0일 0시간 0분 0초 남음</div>
+            <div id="count">D+??</div>
         </div>        
     </div>
 </body>
@@ -32,10 +32,10 @@
 
     function calcDate() {
         const now = new Date().getTime();
-        const distance = now - goalDate +2;
+        const distance = now - goalDate;
         
 
-        var days = Math.floor(distance / (1000*60*60*24));
+        var days = Math.floor(distance / (1000*60*60*24))+2;
         //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
         //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
         //var seconds = Math.floor((distance % (1000*60)) / 1000);
