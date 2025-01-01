@@ -16,8 +16,8 @@
         font-size: 16px;
 
     .count {
-        font-size: 16px; 
-        //font-weight: bold; 
+        font-size: 24px; 
+        font-weight: bold; 
     }
 </style>
 <body>
