@@ -27,7 +27,6 @@
 </html>
 <script>
     const goalDate = new Date("2024-12-09").getTime();
-    document.getElementById('count').style.fontSize = '16px';
 
     function calcDate() {
         const now = new Date().getTime();
@@ -38,7 +37,7 @@
         //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
         //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
         //var seconds = Math.floor((distance % (1000*60)) / 1000);
-
+        document.getElementById('count').style.fontSize = '16px';
         if (distance < 0) {
             return 'D+${days}';
         } else {
