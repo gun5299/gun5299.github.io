@@ -12,7 +12,6 @@
         text-align: left;
         font-size: 8px;
         display: flex;
-        height: calc(100vh - 100px);
         background-color: #EDF2EC;
         color: #438261;
     }
@@ -21,9 +20,7 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1>총이와 청이🐸</h1>
-            <h6></h6>
-            
+            <h1> 총이와 청이🐸</h1>            
         </div> 
         <div id="count">D+??</div>
     </div>
