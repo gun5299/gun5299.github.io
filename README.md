@@ -14,11 +14,6 @@
         width: 100%;
         text-align: center;
         font-size: 16px;
-        }
-
-    .count {
-        font-size: 16px; 
-        font-weight: bold; 
     }
 </style>
 <body>
@@ -32,6 +27,8 @@
 </html>
 <script>
     const goalDate = new Date("2024-12-09").getTime();
+    const content = document.getElementById("content");
+    content.style.fontSize = "16px";
 
     function calcDate() {
         const now = new Date().getTime();
