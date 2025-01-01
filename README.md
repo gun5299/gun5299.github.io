@@ -9,6 +9,7 @@
         display: flex;
         align-items: center;
         height: calc(100vh - 100px);
+        color: #03F3B3;
     }
 
     .container {
