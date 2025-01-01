@@ -18,16 +18,11 @@
         text-align: center;
         font-size: 200%;
     }
-
-    .container iframe {
-        margin-top: 40px;
-    }
 </style>
 <body>
     <div class="wrapper">
         <div class="container">
             <h1></h1>
-            <h3>2023년 새해까지</h3>
             <div id="count">0일 0시간 0분 0초 남음</div>
         </div>        
     </div>
