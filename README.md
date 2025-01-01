@@ -20,7 +20,6 @@
 
     .container iframe {
         margin-top: 40px;
-        color: 5800FD;
     }
 </style>
 <body>
