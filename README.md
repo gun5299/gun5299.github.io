@@ -32,7 +32,7 @@
 </body>
 </html>
 <script>
-    const goalDate = new Date("2023-01-01").getTime();
+    const goalDate = new Date("2024-12-09").getTime();
 
     function calcDate() {
         const now = new Date().getTime();
@@ -44,7 +44,7 @@
         var seconds = Math.floor((distance % (1000*60)) / 1000);
 
         if (distance < 0) {
-            return '(지나감)';
+            return '${days}일';
         } else {
             return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남음`;
         }
