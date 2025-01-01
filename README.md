@@ -21,7 +21,7 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1></h1>
+            <h1>청이와 총이</h1>
             <div id="count">D+??</div>
         </div>        
     </div>
