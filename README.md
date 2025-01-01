@@ -8,8 +8,8 @@
         display: flex;
         align-items: center;
         height: calc(100vh - 100px);
-        background-color: #5800FD;
-        color: #03F3B3;
+        background-color: #EDF2EC;
+        color: #438261;
     }
 
     .container {
