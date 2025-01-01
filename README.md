@@ -4,7 +4,6 @@
 <style>
     .wrapper {
         display: flex;
-        align-items: center;
         height: calc(100vh - 100px);
         background-color: #EDF2EC;
         color: #438261;
