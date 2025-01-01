@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>디데이 카운터</title>
+    <title></title>
 </head>
 <style>
     .wrapper {
@@ -26,7 +26,7 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1>디데이 카운터</h1>
+            <h1></h1>
             <h3>2023년 새해까지</h3>
             <div id="count">0일 0시간 0분 0초 남음</div>
         </div>        
@@ -38,7 +38,8 @@
 
     function calcDate() {
         const now = new Date().getTime();
-        const distance = goalDate - now;
+        distance = now - goalDate;
+        
 
         var days = Math.floor(distance / (1000*60*60*24));
         var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
@@ -46,9 +47,9 @@
         var seconds = Math.floor((distance % (1000*60)) / 1000);
 
         if (distance < 0) {
-            return '${-days}일';
+            return '${days}일';
         } else {
-            return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남음`;
+            return `${days}일`;
         }
     }
     
