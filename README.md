@@ -15,7 +15,7 @@
         text-align: center;
         font-size: 16px;
 
-    #count {
+    .count {
         font-size: 16px; 
         //font-weight: bold; 
     }
