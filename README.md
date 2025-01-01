@@ -32,7 +32,7 @@
 
     function calcDate() {
         const now = new Date().getTime();
-        distance = now - goalDate +2;
+        const distance = now - goalDate +2;
         
 
         var days = Math.floor(distance / (1000*60*60*24));
