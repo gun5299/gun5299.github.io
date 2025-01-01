@@ -1,59 +1,70 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-</head>
-<style>
-    .wrapper {
-        background-color: #EDF2EC;
-        color: #438261;
-        width: 100vh;
-  		height: 50vh;
-        margin: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디데이 계산</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #EDF2EC; /* 배경색 */
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
 
-    .container {
-        text-align: left;
-        font-size: 8vh;
-        display: flex;
-        background-color: #EDF2EC;
-        color: #438261;
-    }
-    
-</style>
-<body class="wrapper">
-    <div>
-        <div class="container">
-            총이와 청이🐸
-        </div> 
-    </div>
-    <div id="count">D+??</div>
+        /* 좌측 상단 날짜 스타일 */
+        .date-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 10vh;
+            color: #438261;
+        }
+
+        /* 우측 하단 디데이 스타일 */
+        .count-display {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 40vh;
+            font-weight: bold;
+            color: #438261;
+        }
+    </style>
+</head>
+<body>
+    <div class="date-display" id="date-display">총이와 청이🐸</div>
+    <div class="count-display" id="count-display">D+??</div>
+
+    <script>
+        // 목표 날짜 설정 (여기서 날짜를 변경하면 D-Day가 바뀜)
+        const goalDate = "2024-12-09";
+
+        // 날짜 표시 업데이트
+        //document.getElementById("date-display").textContent = goalDate;
+
+        // D-Day 계산 함수
+        function calculateDday() {
+            const today = new Date(); // 현재 시간
+            const targetDate = new Date(goalDate); // 목표 시간
+            const diffTime = today - targetDate; // 밀리초 차이 계산
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // 일 단위로 변환
+            return diffDays >= 0 ? `D+${diffDays+2}` : `D${diffDays-2}`; // D+N 또는 D-N 형태 반환
+        }
+
+        // 실시간 디데이 업데이트
+        function updateDday() {
+            const countElement = document.getElementById("count-display");
+            countElement.textContent = calculateDday();
+        }
+
+        // 1초마다 디데이 업데이트
+        setInterval(updateDday, 1000);
+
+        // 페이지 로드 시 초기화
+        updateDday();
+    </script>
 </body>
 </html>
-<script>
-    const goalDate = new Date("2024-12-09").getTime();
-
-    function calcDate() {
-        const now = new Date().getTime();
-        const distance = now - goalDate;
-        
-
-        var days = Math.floor(distance / (1000*60*60*24))+2;
-        //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-        //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-        //var seconds = Math.floor((distance % (1000*60)) / 1000);
-        document.getElementById('count').style.fontSize = "35vh";
-        document.getElementById('count').style.textAlign = 'right';
-        document.getElementById('count').style.verticalAlign = 'bottom';
-        document.getElementById('count').style.fontWeight = '600'
-        if (distance < 0) {
-            return 'D+${days}';
-        } else {
-            return `D+${days}`;
-        }
-    }
-    
-    setInterval(() => {
-        document.getElementById('count').innerText = calcDate();
-    }, 1000);
-
-</script>
