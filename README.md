@@ -1,3 +1,5 @@
+#gun
+<!DOCTYPE HTML>
 <html lang="ko">
 <head>
 </head>
@@ -10,7 +12,7 @@
     .container {
         width: 100%;
         text-align: left;
-        font-size: 8px;
+        font-size: 8vh;
         display: flex;
         background-color: #EDF2EC;
         color: #438261;
@@ -40,7 +42,7 @@
         //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
         //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
         //var seconds = Math.floor((distance % (1000*60)) / 1000);
-        document.getElementById('count').style.fontSize = "50px";
+        document.getElementById('count').style.fontSize = "50vh";
         document.getElementById('count').style.textAlign = 'right';
         document.getElementById('count').style.vertialAlign = 'bottom';
         document.getElementById('count').style.fontWeight = '700'
