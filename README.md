@@ -15,7 +15,7 @@
     .container {
         width: 100%;
         text-align: center;
-        font-size: 100%;
+        font-size: 400%;
     }
 </style>
 <body>
