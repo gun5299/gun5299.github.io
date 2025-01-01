@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>동적 텍스트 크기 조정</title>
+    <title>화면 적응형 D-Day</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             background-color: #EDF2EC; /* 배경색 */
             font-family: Arial, sans-serif;
-            position: relative;
-        }
-
-        /* 좌측 상단 날짜 */
-        .date-display {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 24px;
-            color: #438261;
-        }
-
-        /* 우측 하단 디데이 */
-        .count-display {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 50%; /* 텍스트가 가로 크기를 초과하지 않도록 너비 제한 */
-            text-align: right;
-            color: #438261;
-            font-weight: bold;
-            white-space: nowrap;
+            height: 100vh;
             overflow: hidden;
         }
 
-        .count-display span {
-            display: inline-block;
-            font-size: 60px; /* 기본 폰트 크기 */
+        /* 날짜 스타일 (좌측 상단) */
+        .date-display {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            text-align: left;
             font-weight: bold;
             color: #438261;
+            line-height: 1;
+        }
+
+        /* 디데이 스타일 (우측 하단) */
+        .count-display {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            text-align: right;
+            font-weight: bold;
+            color: #438261;
+            line-height: 1;
+        }
+
+        /* 텍스트가 화면 크기에 따라 변경되도록 기본 설정 */
+        .text {
+            margin: 0;
+            padding: 0;
+            font-size: 10vw; /* 화면 크기에 비례하는 폰트 크기 */
+            white-space: nowrap;
         }
     </style>
 </head>
 <body>
-    <div class="date-display" id="date-display">YYYY-MM-DD</div>
-    <div class="count-display" id="count-display">
-        <span>D+??</span>
+    <!-- 날짜 및 디데이 표시 -->
+    <div class="date-display">
+        <p class="text" id="date-text">YYYY-MM-DD</p>
+    </div>
+    <div class="count-display">
+        <p class="text" id="count-text">D+??</p>
     </div>
 
     <script>
@@ -56,43 +63,46 @@
         const goalDate = "2024-12-09";
 
         // 날짜 표시 업데이트
-        document.getElementById("date-display").textContent = goalDate;
+        document.getElementById("date-text").textContent = goalDate;
 
         // D-Day 계산 함수
         function calculateDday() {
             const today = new Date(); // 현재 시간
-            const targetDate = new Date(goalDate); // 목표 시간
+            const targetDate = new Date(goalDate); // 목표 날짜
             const diffTime = today - targetDate; // 밀리초 차이 계산
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // 일 단위로 변환
-            return diffDays >= 0 ? `D+${diffDays}` : `D${diffDays}`; // D+N 또는 D-N 형태 반환
-        }
-
-        // 실시간 디데이 업데이트
-        function updateDday() {
-            const countElement = document.querySelector(".count-display span");
-            countElement.textContent = calculateDday();
-            adjustFontSize(countElement); // 텍스트 크기 조정
+            return diffDays >= 0 ? `D+${diffDays}` : `D${diffDays}`;
         }
 
         // 텍스트 크기 조정 함수
-        function adjustFontSize(element) {
-            const parent = element.parentNode; // 부모 요소
-            const parentWidth = parent.clientWidth; // 부모 요소의 너비
-            let fontSize = parseInt(window.getComputedStyle(element).fontSize, 300); // 현재 폰트 크기
-            element.style.fontSize = `${fontSize}px`; // 폰트 크기 초기화
+        function adjustFontSize() {
+            // 화면 크기에 따라 폰트 크기 자동 조정
+            const dateText = document.getElementById("date-text");
+            const countText = document.getElementById("count-text");
 
-            // 텍스트가 부모 요소 너비를 초과할 경우 폰트 크기 축소
-            while (element.scrollWidth > parentWidth && fontSize > 10) {
-                fontSize -= 1; // 폰트 크기 감소
-                element.style.fontSize = `${fontSize}px`;
-            }
+            const vw = window.innerWidth; // 화면 너비
+            const vh = window.innerHeight; // 화면 높이
+
+            // 폰트 크기를 뷰포트 크기에 맞게 조정 (날짜와 디데이의 텍스트 비율을 따로 조정 가능)
+            dateText.style.fontSize = `${Math.min(vw, vh) * 0.05}px`; // 날짜는 화면 크기의 5%
+            countText.style.fontSize = `${Math.min(vw, vh) * 0.1}px`; // 디데이는 화면 크기의 10%
         }
 
-        // 1초마다 디데이 업데이트
-        setInterval(updateDday, 1000);
+        // D-Day 업데이트
+        function updateDday() {
+            const countElement = document.getElementById("count-text");
+            countElement.textContent = calculateDday();
+        }
 
-        // 페이지 로드 시 초기화
-        updateDday();
+        // 화면 크기 변경 시 폰트 크기 조정
+        window.addEventListener("resize", adjustFontSize);
+
+        // 초기화
+        adjustFontSize(); // 첫 로드 시 폰트 크기 조정
+        updateDday(); // 디데이 텍스트 초기화
+
+        // 1초마다 디데이 업데이트 (실시간 반영)
+        setInterval(updateDday, 1000);
     </script>
 </body>
 </html>
