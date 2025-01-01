@@ -6,13 +6,14 @@
     .wrapper {
         background-color: #EDF2EC;
         color: #438261;
-        width: 90vh;
-  		height: 90vh;
+        width: 100vh;
+  		height: 50vh;
+        margin: 20px;
     }
 
     .container {
         text-align: left;
-        font-size: 6vh;
+        font-size: 8vh;
         display: flex;
         background-color: #EDF2EC;
         color: #438261;
@@ -22,7 +23,7 @@
 <body class="wrapper">
     <div>
         <div class="container">
-            <h1> 총이와 청이🐸</h1>
+            총이와 청이🐸
         </div> 
     </div>
     <div id="count">D+??</div>
@@ -40,10 +41,10 @@
         //var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
         //var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
         //var seconds = Math.floor((distance % (1000*60)) / 1000);
-        document.getElementById('count').style.fontSize = "30vh";
+        document.getElementById('count').style.fontSize = "35vh";
         document.getElementById('count').style.textAlign = 'right';
-        document.getElementById('count').style.vertialAlign = 'bottom';
-        document.getElementById('count').style.fontWeight = '700'
+        document.getElementById('count').style.verticalAlign = 'bottom';
+        document.getElementById('count').style.fontWeight = '600'
         if (distance < 0) {
             return 'D+${days}';
         } else {
