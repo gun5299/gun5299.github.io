@@ -14,6 +14,7 @@
         width: 100%;
         text-align: center;
         font-size: 16px;
+        }
 
     .count {
         font-size: 24px; 
