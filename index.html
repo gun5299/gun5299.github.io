@@ -78,7 +78,7 @@
         function adjustFontSize(element) {
             const parent = element.parentNode; // 부모 요소
             const parentWidth = parent.clientWidth; // 부모 요소의 너비
-            let fontSize = parseInt(window.getComputedStyle(element).fontSize, 10); // 현재 폰트 크기
+            let fontSize = parseInt(window.getComputedStyle(element).fontSize, 300); // 현재 폰트 크기
             element.style.fontSize = `${fontSize}px`; // 폰트 크기 초기화
 
             // 텍스트가 부모 요소 너비를 초과할 경우 폰트 크기 축소
